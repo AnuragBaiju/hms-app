@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Add New Room</h2>
+<form method="POST" class="shadow p-4 rounded bg-light">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label>Room Number</label>
+            <input type="text" name="room_number" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Room Type</label>
+            <input type="text" name="room_type" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Price/Night</label>
+            <input type="number" name="price_per_night" class="form-control" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Availability</label>
+            <select name="availability" class="form-control">
+                <option>Available</option>
+                <option>Occupied</option>
+            </select>
+        </div>
+        <div class="col-12 mb-3">
+            <label>Description</label>
+            <textarea name="description" class="form-control" rows="3"></textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Add Room</button>
+</form>
+{% endblock %}

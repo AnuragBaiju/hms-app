@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2 class="mb-4">All Rooms</h2>
+<table class="table table-striped shadow">
+    <thead>
+        <tr>
+            <th>Room #</th><th>Type</th><th>Price</th><th>Status</th><th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room[1] }}</td>
+            <td>{{ room[2] }}</td>
+            <td>₹{{ room[3] }}</td>
+            <td>{{ room[4] }}</td>
+            <td>
+                <a href="{{ url_for('edit_room', room_id=room[0]) }}" class="btn btn-sm btn-warning">
+                    <i class="fa fa-edit"></i>
+                </a>
+                <form method="POST" action="{{ url_for('delete_room', room_id=room[0]) }}" class="d-inline">
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                        <i class="fa fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

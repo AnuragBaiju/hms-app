@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h2>Edit Room</h2>
+<form method="POST" class="shadow p-4 rounded bg-light">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label>Room Number</label>
+            <input type="text" name="room_number" class="form-control" value="{{ room[1] }}" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Room Type</label>
+            <input type="text" name="room_type" class="form-control" value="{{ room[2] }}" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Price/Night</label>
+            <input type="number" name="price_per_night" class="form-control" value="{{ room[3] }}" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label>Availability</label>
+            <select name="availability" class="form-control">
+                <option {% if room[4] == 'Available' %}selected{% endif %}>Available</option>
+                <option {% if room[4] == 'Occupied' %}selected{% endif %}>Occupied</option>
+            </select>
+        </div>
+        <div class="col-12 mb-3">
+            <label>Description</label>
+            <textarea name="description" class="form-control" rows="3">{{ room[5] }}</textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Room</button>
+</form>
+{% endblock %}

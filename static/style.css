@@ -1,0 +1,26 @@
+body {
+    background-color: #f0f2f5;
+}
+
+.hero-section {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(1.03); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.toast {
+    min-width: 250px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    transition: 0.2s ease;
+}
