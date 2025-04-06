@@ -1,0 +1,47 @@
+name: 🚀 Deploy HMS to EC2
+
+on:
+  push:
+    branches:
+      - main  # or master if you're using that
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ✅ Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🔐 Setup SSH Access
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: 🚀 Deploy on EC2
+        run: |
+          ssh ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+
+            echo "📦 Cleaning old app..."
+            rm -rf ~/hms-app
+            git clone https://github.com/AnuragBaiju/hms-app.git ~/hms-app
+            cd ~/hms-app
+
+            echo "🛑 Killing existing app..."
+            pkill -f "python3.11 app.py" || true
+
+            echo "🐍 Creating venv (if needed)..."
+            python3.11 -m venv venv
+
+            echo "⚙️ Activating venv..."
+            source venv/bin/activate
+
+            echo "📦 Installing dependencies..."
+            pip install --upgrade pip
+            pip install -r requirements.txt
+
+            echo "🚀 Starting app with nohup..."
+            nohup python3.11 app.py > flask.log 2>&1 &
+          EOF
