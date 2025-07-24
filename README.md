@@ -4,74 +4,94 @@
 [![Flask](https://img.shields.io/badge/Flask-2.2.2-000000.svg?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![CI/CD](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF.svg?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
 [![AWS](https://img.shields.io/badge/Deployed_on-AWS_EC2-FF9900.svg?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/ec2/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-A cloud-native Hotel Management System (HMS) built with Flask and SQLite3, demonstrating a complete DevSecOps lifecycle. This project, developed for the MSc. in Cloud Computing at the National College of Ireland, features a secure CRUD application with a fully automated CI/CD pipeline for deployment to AWS EC2.
+[cite_start]Welcome to **HotelMgmt**, a cloud-native application that re-imagines hotel management through the lens of modern DevOps and security practices[cite: 1, 2, 3]. [cite_start]This project isn't just a simple CRUD app; it's a demonstration of how automation, security, and cloud infrastructure come together to build reliable, production-ready software[cite: 226].
 
-**Live Demo URL:** **[http://108.129.170.142:5000/](http://108.129.170.142:5000/)**
-
-<br>
+[cite_start]**Live Demo URL:** **[http://108.129.170.142:5000/](http://108.129.170.142:5000/)** [cite: 141]
 
 <p align="center">
   <img src=".github/assets/3.jpeg" alt="Landing Page" width="90%">
 </p>
 
-## ✨ Key Features
+---
+## ✨ Project Philosophy
 
-* **Secure Admin Dashboard**: Full CRUD (Create, Read, Update, Delete) functionality for managing hotel rooms, protected by a secure admin login with hashed passwords.
-* **Public Room Catalog**: A public-facing view where users can browse room listings without requiring authentication.
-* **Automated CI/CD Pipeline**: Every push to the `main` branch triggers a GitHub Actions workflow that automatically deploys the application to an AWS EC2 instance.
-* **Static Code Analysis**: Integrated with `pylint` and SonarQube Cloud to proactively identify and fix code quality issues and security vulnerabilities.
-* **Secure Cloud Architecture**: Deployed within a custom VPC on AWS with securely configured security groups and SSH key management for access control.
+[cite_start]The core idea behind this project was to apply the concepts learned in the Cloud DevOpsSec module to a real-world scenario[cite: 21]. [cite_start]Instead of just building a piece of software, the goal was to simulate the entire lifecycle of a modern web application—from writing secure code and automating deployments to managing cloud infrastructure securely[cite: 24]. [cite_start]Every feature and architectural choice was made with a "DevSecOps first" mindset[cite: 19].
 
-<details>
-<summary><b>Click to see more screenshots</b></summary>
-<br>
-<table>
-  <tr>
-    <td><img src=".github/assets/5.jpeg" alt="Admin Login"></td>
-    <td><img src=".github/assets/1.jpeg" alt="All Rooms"></td>
-  </tr>
-  <tr>
-    <td align="center"><em>Admin Login Page</em></td>
-    <td align="center"><em>All Rooms View</em></td>
-  </tr>
-  <tr>
-    <td><img src=".github/assets/2.jpeg" alt="Add New Room"></td>
-    <td><img src=".github/assets/6.jpeg" alt="Edit Room"></td>
-  </tr>
-  <tr>
-    <td align="center"><em>Add New Room Form</em></td>
-    <td align="center"><em>Edit Room Form</em></td>
-  </tr>
-</table>
-</details>
+---
+## 🚀 Features in Action
 
-## 🏗️ System Architecture & CI/CD
-
-The application follows a modular MVC (Model-View-Controller) structure to ensure maintainability and scalability. The core CI/CD pipeline automates the entire deployment process, from code commit to live application.
-
-1.  A developer pushes code to the private GitHub repository.
-2.  A GitHub Actions workflow is automatically triggered.
-3.  The workflow establishes a secure SSH connection to the AWS EC2 instance using credentials stored in GitHub Secrets.
-4.  On the server, the script pulls the latest code, sets up the environment, installs dependencies, and restarts the Flask application.
+### **Secure Admin Dashboard**
+[cite_start]A protected dashboard for hotel staff to manage room inventory[cite: 32]. [cite_start]It supports full CRUD (Create, Read, Update, Delete) operations, with access secured by a robust login system that uses hashed passwords for credential protection[cite: 5, 33, 38].
 
 <p align="center">
-  <img src=".github/assets/cicd.png" alt="CI/CD Pipeline Diagram" width="70%">
+  <img src=".github/assets/1.jpeg" alt="All Rooms Admin View" width="80%">
 </p>
 
-## 🛠️ Technology Stack
+### **Effortless Room Management**
+[cite_start]Intuitive forms allow administrators to add new rooms or update existing details with ease[cite: 64, 70]. [cite_start]The system uses both front-end and server-side validation to ensure data integrity[cite: 37].
 
-| Category      | Technologies & Tools                                 |
-| :------------ | :--------------------------------------------------- |
-| **Backend** | `Flask`, `Python 3.11`                    |
-| **Database** | `SQLite3`                                       |
-| **Frontend** | `HTML`, `CSS`, `Bootstrap`                     |
-| **Cloud** | `AWS EC2`, `VPC`, `Security Groups`         |
-| **CI/CD** | `Git`, `GitHub`, `GitHub Actions`      |
-| **DevSecOps** | `SonarQube Cloud`, `pylint`          |
+<p align="center">
+  <img src=".github/assets/6.jpeg" alt="Edit Room Form" width="80%">
+</p>
 
+### **Automated CI/CD Pipeline**
+This project is built for speed and reliability. [cite_start]Every `git push` to the main branch automatically triggers a GitHub Actions workflow that deploys the latest version to the AWS server in seconds[cite: 8, 45, 117]. [cite_start]This pipeline eliminates manual deployment errors and ensures changes are delivered quickly and safely[cite: 154, 229].
 
-## 📂 Project Structure
+<p align="center">
+  <img src=".github/assets/deploy%20cicid.jpg" alt="GitHub Actions Workflow" width="80%">
+</p>
 
-The project is organized with a clean and understandable structure:
+---
+## 🏗️ Architecture & Tech Stack
+
+[cite_start]The system is built on a modular MVC (Model-View-Controller) architecture using Flask and is hosted on an **AWS EC2** instance within a custom-configured, secure VPC in the `eu-west-1` (Ireland) region[cite: 7, 35, 56].
+
+| Category | Technologies & Tools |
+| :--- | :--- |
+| **Backend** | [cite_start]`Flask`, `Python 3.11` [cite: 82, 42] |
+| **Database** | [cite_start]`SQLite3` [cite: 84] |
+| **Frontend** | [cite_start]`HTML`, `CSS`, `Bootstrap` [cite: 86] |
+| **Cloud** | [cite_start]`AWS EC2`, `VPC`, `Security Groups` [cite: 90, 40] |
+| **CI/CD** | [cite_start]`Git`, `GitHub`, `GitHub Actions` [cite: 87, 89] |
+| **DevSecOps** | [cite_start]`SonarQube Cloud`, `pylint` [cite: 92, 93] |
+
+---
+## 🔧 Getting Started Locally
+
+1.  **Clone the Repository**
+    ```sh
+    git clone [https://github.com/AnuragBaiju/hms-app.git](https://github.com/AnuragBaiju/hms-app.git)
+    cd hms-app
+    ```
+2.  **Set Up and Activate a Virtual Environment**
+    ```sh
+    # For macOS/Linux
+    python3 -m venv venv
+    source venv/bin/activate
+
+    # For Windows
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
+3.  **Install Dependencies**
+    ```sh
+    pip install -r requirements.txt
+    ```
+4.  **Initialize the Database**
+    * Start a Python interactive shell (`python`).
+    * Run the following commands:
+        ```python
+        from app import init_db
+        init_db()
+        exit()
+        ```
+5.  **Run the Flask Application**
+    ```sh
+    flask run
+    ```
+    The application will be available at `http://127.0.0.1:5000`. The default admin credentials are `admin` / `password`.
+
+---
+## Acknowledgments
+[cite_start]This project was developed as a requirement for the **Cloud DevOpsSec** module in the **MSc. in Cloud Computing** program at the National College of Ireland, Dublin[cite: 2, 3, 21].
