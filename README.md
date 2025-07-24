@@ -1,68 +1,54 @@
-<p align="center">
-  <img src=".github/assets/01-landing-page.jpg" alt="Landing Page" width="80%">
-</p>
+# Hotel Management System (HMS-Flask)
 
-## Key Features
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.2.2-000000.svg?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![CI/CD](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF.svg?style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/features/actions)
+[![AWS](https://img.shields.io/badge/Deployed_on-AWS_EC2-FF9900.svg?style=for-the-badge&logo=amazonaws&logoColor=white)](https://aws.amazon.com/ec2/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-* [cite_start]**Secure Admin Authentication**: Dedicated login for administrators with password hashing to protect credentials[cite: 9, 38].
-* [cite_start]**Full Room Management (CRUD)**: Admins can add, view, update, and delete room details, including number, type, price, and availability[cite: 5, 33, 52].
-* [cite_start]**Public Room Listings**: General users can view all available rooms without needing to log in, ensuring usability and accessibility[cite: 12, 34].
-* [cite_start]**Responsive Frontend**: A clean and user-friendly interface built with Bootstrap[cite: 86].
-* [cite_start]**Input Validation**: Server-side and client-side validation to ensure data integrity and prevent injection attacks[cite: 37].
+A cloud-native Hotel Management System (HMS) built with Flask and SQLite3, demonstrating a complete DevSecOps lifecycle. This project, developed for the MSc. in Cloud Computing at the National College of Ireland, features a secure CRUD application with a fully automated CI/CD pipeline for deployment to AWS EC2.
 
-<details>
-<summary><b>Click to see more screenshots</b></summary>
+**Live Demo URL:** **[http://108.129.170.142:5000/](http://108.129.170.142:5000/)**
+
 <br>
-<table>
-  <tr>
-    <td><img src=".github/assets/02-admin-login.jpeg" alt="Admin Login"></td>
-    <td><img src=".github/assets/03-all-rooms-view.jpeg" alt="All Rooms"></td>
-  </tr>
-  <tr>
-    <td align="center"><em>Admin Login Page</em></td>
-    <td align="center"><em>All Rooms View</em></td>
-  </tr>
-  <tr>
-    <td><img src=".github/assets/04-add-new-room.jpeg" alt="Add New Room"></td>
-    <td><img src=".github/assets/05-edit-room.jpeg" alt="Edit Room"></td>
-  </tr>
-  <tr>
-    <td align="center"><em>Add New Room Form</em></td>
-    <td align="center"><em>Edit Room Form</em></td>
-  </tr>
-</table>
-</details>
-
-## System Architecture & CI/CD Pipeline
-
-[cite_start]The application is built on a modular MVC (Model-View-Controller) architecture using the Flask framework[cite: 35, 56]. [cite_start]It is hosted on an **AWS EC2 instance** within a custom VPC in the `eu-west-1` (Ireland) region[cite: 7, 39, 97].
-
-[cite_start]The project features a complete CI/CD pipeline automated with **GitHub Actions**[cite: 8, 89]. [cite_start]On every push to the `main` branch, the pipeline automatically triggers, connects to the EC2 server via SSH, and deploys the latest version of the application[cite: 8, 117, 120]. [cite_start]This ensures continuous delivery and high reliability[cite: 46, 98].
 
 <p align="center">
-  <img src=".github/assets/architecture-cicd-pipeline.jpg" alt="CI/CD Pipeline Diagram" width="60%">
-  <br>
-  <em>CI/CD Pipeline Workflow.</em>
+  <img src=".github/assets/01-landing-page.jpg" alt="Landing Page" width="90%">
 </p>
 
-## Technology Stack
+## ✨ Key Features
 
-| Category | Technology | Description |
-|---|---|---|
-| **Backend** | `Flask` | [cite_start]A lightweight Python web framework for building the application logic and API[cite: 82]. |
-| **Database** | `SQLite3` | [cite_start]A simple, file-based relational database for data persistence[cite: 36, 84]. |
-| **Frontend** | `HTML`, `CSS`, `Bootstrap` | [cite_start]Used for creating a clean, responsive, and user-friendly interface[cite: 86]. |
-| **Cloud Hosting**| `AWS EC2` | [cite_start]The virtual server where the application is deployed and hosted[cite: 7, 90]. |
-| **CI/CD** | `Git`, `GitHub Actions` | [cite_start]For version control and automating the build, test, and deployment pipeline[cite: 87, 89]. |
-| **Code Analysis**| `pylint`, `SonarQube Cloud` | [cite_start]Static analysis tools to ensure code quality, maintainability, and security[cite: 10, 92, 93]. |
+* **Secure Admin Dashboard**: Full CRUD (Create, Read, Update, Delete) functionality for managing hotel rooms, protected by a secure admin login with hashed passwords.
+* **Public Room Catalog**: A public-facing view where users can browse room listings without requiring authentication.
+* **Automated CI/CD Pipeline**: Every push to the `main` branch triggers a GitHub Actions workflow that automatically deploys the application to an AWS EC2 instance.
+* **Static Code Analysis**: Integrated with `pylint` and SonarQube Cloud to proactively identify and fix code quality issues and security vulnerabilities.
+* **Secure Cloud Architecture**: Deployed within a custom VPC on AWS with securely configured security groups and SSH key management for access control.
 
+## 🏗️ System Architecture & CI/CD
 
-## Static Code Analysis
+The application follows a modular MVC (Model-View-Controller) structure to ensure maintainability and scalability. The core CI/CD pipeline automates the entire deployment process, from code commit to live application.
 
-[cite_start]As part of DevSecOps best practices, the codebase was continuously analyzed using `pylint` and `SonarQube Cloud`[cite: 10, 165, 166]. [cite_start]This helped identify and fix potential bugs, security vulnerabilities, and code smells early in the development cycle[cite: 164, 236].
+1.  A developer pushes code to the private GitHub repository.
+2.  A GitHub Actions workflow is automatically triggered.
+3.  The workflow establishes a secure SSH connection to the AWS EC2 instance using credentials stored in GitHub Secrets.
+4.  On the server, the script pulls the latest code, sets up the environment, installs dependencies, and restarts the Flask application.
 
 <p align="center">
-  <img src=".github/assets/analysis-pylint-output.png" alt="Pylint Scan Output" width="70%">
-  <br>
-  [cite_start]<em>Example `pylint` output, which scored the code 8.43/10[cite: 183].</em>
+  <img src=".github/assets/architecture-cicd-pipeline.jpg" alt="CI/CD Pipeline Diagram" width="70%">
 </p>
+
+## 🛠️ Technology Stack
+
+| Category      | Technologies & Tools                                 |
+| :------------ | :--------------------------------------------------- |
+| **Backend** | `Flask`, `Python 3.11`                     |
+| **Database** | `SQLite3`                                        |
+| **Frontend** | `HTML`, `CSS`, `Bootstrap`                      |
+| **Cloud** | `AWS EC2`, `VPC`, `Security Groups`          |
+| **CI/CD** | `Git`, `GitHub`, `GitHub Actions`       |
+| **DevSecOps** | `SonarQube Cloud`, `pylint`           |
+
+
+## 📂 Project Structure
+
+The project is organized with a clean and understandable structure:
