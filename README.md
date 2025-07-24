@@ -8,7 +8,7 @@
 
 A cloud-native Hotel Management System (HMS) built with Flask and SQLite3, demonstrating a complete DevSecOps lifecycle. This project, developed for the MSc. in Cloud Computing at the National College of Ireland, features a secure CRUD application with a fully automated CI/CD pipeline for deployment to AWS EC2.
 
-**Live Demo URL:** **[http://108.129.170.142:5000/](http://108.129.170.142:5000/)**
+#**Live Demo URL:** **[http://108.129.170.142:5000/](http://108.129.170.142:5000/)**
 
 <br>
 
